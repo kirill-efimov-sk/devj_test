@@ -1,0 +1,24 @@
+CREATE DATABASE base_test;
+use base_test;
+
+CREATE TABLE users ( \
+  id INT AUTO_INCREMENT PRIMARY KEY, \
+  login CHAR(128), \
+  password CHAR(128), \
+  object_id CHAR(128));
+
+CREATE TABLE objects ( \
+  id INT AUTO_INCREMENT PRIMARY KEY, \
+  name CHAR(128), \
+  status CHAR(128));
+
+INSERT INTO users  (login, password, object_id) 
+VALUES ('homeGoose', 1157, 0001);
+SELECT * FROM users;
+
+INSERT INTO objects  (name, status) 
+VALUES ('Mikky', 'connected');
+SELECT * FROM objects;
+
+
+SELECT * FROM objects INNER JOIN users ON objects.id=users.object_id;
